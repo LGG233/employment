@@ -19,141 +19,132 @@ var questionBank = [
   { theQuestion: "18. Do you provide the worker with equipment, tools, or materials?", answerA: "Yes", answerB: "No", theBlurb: "Independent contractors generally supply the materials for the job and use their own tools and equipment." },
   { theQuestion: "19. Can you fire the worker?", answerA: "Yes", answerB: "No", theBlurb: "An independent contractor can’t be fired without subjecting you to the risk of breach of contract lawsuit." },
   { theQuestion: "20. Can the worker quit at any time, without incurring liability?", answerA: "Yes", answerB: "No", theBlurb: "An independent contractor has a legal obligation to complete the contract." }
-
-  // { theQuestion: "Does the worker work full-time for the employer?", answerA: "Four", answerB: "Nine", answerC: "Eleven", answerD: "Thirteen", theBlurb: "<em>Titanic</em> received 11 Academy Awards, including Best Picture, Best Director, Best Visual Effects, and Best Actress for Kate Winslet.", rightAns: "C", image: "assets/images/titanic.jpg", altText: "Titanic" },
-  // { theQuestion: "Is the worker required to comply to work when, where and how the employer wants?", answerA: "<em>Life is Beautiful</em><br>(<em>La vita è bella</em>)", answerB: "<em>Crouching Tiger, Hidden Dragon</em><br>(<em>Wo hu cang long</em>)", answerC: "<em>Babette’s Feast</em><br>(<em>Babettes gæstebud</em>)", answerD: "<em>Amélie</em><br>(<em>Le fabuleux destin d'Amélie Poulain</em>)", theBlurb: "<em>Amélie</em> was nominated for five Oscars – Foreign Language Film, Best Original Screenplay, Best Cinematography, Best Sound Mixing, and Best Production Design – but did not win in any category.", rightAns: "D", image: "assets/images/amelie.jpg", altText: "Amélie" },
-  // { theQuestion: "Does the worker have a mandatory schedule with set hours?", answerA: "Katharine Hepburn", answerB: "Walter Brennan", answerC: "Jack Nicholson", answerD: "Ingrid Bergman", theBlurb: "Katharine Hepburn won four Best Actress acting awards, for <em>Morning Glory</em> (1933), <em>Guess Who's Coming to Dinner?</em> (1967), <em>The Lion in Winter</em> (1968), <em>On Golden Pond</em> (1981). Jack Nicholson, Ingrid Bergman, and Walter Brennan all have won three acting Academy Awards.", rightAns: "A", image: "assets/images/katharine-hepburn.jpg", altText: "Katharine Hepburn" },
-  // { theQuestion: "Does the worker use the employer’s equipment?", answerA: "Steven Spielberg", answerB: "John Ford", answerC: "William Wyler", answerD: "Frank Capra", theBlurb: "John Ford won four Best Director Oscars, for <em>The Informer</em> (1935), <em>The Grapes of Wrath</em> (1940), <em>How Green Was My Valley</em> (1941), and <em>The Quiet Man</em> (1952). He was also nominated for <em>Stagecoach</em> (1939). William Wyler and Frank Capra both have won three times.", rightAns: "B", image: "assets/images/John-Ford.jpg", altText: "John Ford" },
-  // { theQuestion: "Does the worker receive payments of regular amounts and at set intervals?", answerA: "Spencer Tracy", answerB: "Laurence Olivier", answerC: "Al Pacino", answerD: "Jack Nicholson", theBlurb: "Jack Nicholson has been nominated 12 times for his performances.", rightAns: "D", image: "assets/images/JackNicholson.jpg", altText: "Jack Nicholson" },
-  // { theQuestion: "Does the worker work for more than one employer at a time?", answerA: "<em>One Flew Over the Cuckoo's Nest</em>", answerB: "<em>Gone With the Wind</em>", answerC: "<em>It Happened One Night</em>", answerD: "<em>The Silence of the Lambs</em>", theBlurb: "Frank Capra's influential romantic comedy <em>It Happened One Night</em> became the first film to perform a clean sweep of the top five categories: Best Picture, Best Director, Best Actor, Best Actress and Best Screenplay. This feat would later be duplicated by <em>One Flew Over the Cuckoo's Nest</em> in 1976 and <em>The Silence of the Lambs</em> in 1992.", rightAns: "C", image: "assets/images/IT-HAPPENED-ONE-NIGHT.jpg", altText: "It Happened One Night" },
-  // { theQuestion: "Does the employer’s business depend on the performance of workers’ services in order to remain viable?", answerA: "Hattie McDaniel", answerB: "Halle Berry", answerC: "Whoopi Goldberg", answerD: "Jennifer Hudson", theBlurb: "Shockingly, only one African-American has won the Best Actress award in 90+ years of Academy Awards: Halle Berry, for her performance in <em>Monster's Ball</em> (2001).", rightAns: "B", image: "assets/images/Halle-Berry.jpg", altText: "Halle Berry" },
-  // { theQuestion: "Must the worker personally perform the services or tasks?", answerA: "<em>The Lord of the Rings</em>", answerB: "<em>Rocky</em>", answerC: "<em>The Godfather</em>", answerD: "<em>James Bond</em>", theBlurb: "<em>The Godfather</em> series is the only film series to win more than one Best Picture award, for <em>The Godfather</em> (1972) and <em>The Godfather: Part II<em> (1974).", rightAns: "C", image: "assets/images/Godfather.jpg", altText: "The Godfather" },
-  // { theQuestion: "Must the worker submit regular reports and updates to the employer?", answerA: "Katharine Hepburn", answerB: "Helen Mirren", answerC: "Jessica Tandy", answerD: "Geraldine Page", theBlurb: "Jessica Tandy was the oldest winner of an acting award when she won the Best Actress Oscar for <em>Driving Miss Daisy</em> (1989).", rightAns: "C", image: "assets/images/Jessica-Tandy.jpg", altText: "Jessica Tandy" },
-  // { theQuestion: "Does the worker have the ability to hire and pay other workers in the employer’s name?", answerA: "Katharine Hepburn", answerB: "Jack Nicholson", answerC: "Meryl Streep", answerD: "Walt Disney", theBlurb: "Walt Disney won the most Academy Awards, with 22 competitive and 4 honorary Oscars.", rightAns: "D", image: "assets/images/Walt-Disney.jpg", altText: "Walt Disney" }
 ]
-var yes = 0; // number of "yes" answers
-var no = 0; // number of "no" answers
-var unsure = 0; // number of unsure answers
-var rightAns = ""; // placeholder for the right answer for each question
-var blurbText = ""; // placeholder for explanation of correctAnswer
 var currentQuestion = 0; // variable to iterate through the array
-var count; // placeholder; will be used to put 30 seconds on the clock
-var intervalID; // placeholder; declare variable at global level
-var anyToken = ""; // variable for translating player click into selected answer 
 
+// load up document; call answerBtn function 
 $(document).ready(function () {
-  $("#new-game-btn").show();
-  $("#new-game-btn").text("Start Game");
+  $("#new-worker-btn").show();
+  $("#new-worker-btn").text("Start Game");
   hideEverything();
-  playAgain();
+  checkAgain();
+  nextQuestion();
   $(".answerBtn").click(function () {
-    var playerGuess = $(this).data("letter");
-    answerKey = "answer" + playerGuess;
-    evaluateGuess(playerGuess);
+    console.log("answer button clicked");
+    var hrAnswer = $(this).data("letter");
+    recordAnswer(hrAnswer);
   });
 
-  function questTimer() {
-    count = 30;
-    clearInterval(intervalID);
-    intervalID = setInterval(countDown, 1000);
-    countDown();
-  }
-
-  function evaluateGuess(guess) {
+  // function to capture user click and return explanation
+  function recordAnswer(answer) {
     $("#askedQuestion").html(questionBank[currentQuestion - 1].theBlurb);
     $(".answerBtn").hide()
+    $("#statusBar").show();
     $("#statusBar").text("");
-    $("#photoSpot").show();
-    $("#photoSpot").html("<img src=" + questionBank[currentQuestion - 1].image + " alt=" + questionBank[currentQuestion - 1].altText + " id='photoSpot'>");
-    clearInterval(intervalID);
-    if (guess === rightAns) {
-      $("#statusBar").html(questionBank[currentQuestion - 1][answerKey] + " is right!");
-      right = right + 1;
+    $("#new-answer-btn").show();
+    $("#new-question-btn").show();
+    if (answer === "A") {
+      $("#statusBar").html("You answered 'yes'.");
     } else {
-      $("#statusBar").html("Nope, it's not " + questionBank[currentQuestion - 1][answerKey] + ".");
-      wrong = wrong + 1;
+      $("#statusBar").html("You answered 'no'.");
     }
-    setTimeout(loadNewQuestion, 5000);
-  }
+  };
 
-  function loadNewQuestion() {
-    if (currentQuestion == 10) {
-      totalScore();
-    } else {
-      displayQuestion(questionBank[currentQuestion]);
-    }
-  }
-
-  function totalScore() {
-    $("#askedQuestion").show();
-    $(".answerBtn").hide()
-    $("#photoSpot").hide();
-    $("#statusBar").text("");
-    if (right > (wrong + missed)) {
-      $("#askedQuestion").text("Good job! Your final score: " + right + " right answers, " + wrong + " wrong answers, and " + missed + " unanswered questions.");
-    } else {
-      $("#askedQuestion").text("Guess you need to spend a little more time at the movies: you got " + wrong + " wrong, " + missed + " unanswered questions, and only " + right + " questions right.");
-    }
-    $("#new-game-btn").text("Play Again")
-    $("#new-game-btn").show();
-  }
+  function nextQuestion() {
+    $("#new-question-btn").click(function () {
+      $("#statusBar").hide();
+      $("#new-answer-btn").hide();
+      $("#new-question-btn").hide();
+      $("#askedQuestion").show();
+      $(".answerBtn").show();
+      $("#askedQuestion").html(questionBank[currentQuestion].theQuestion);
+      $("#firstAnswer").html(questionBank[currentQuestion].answerA);
+      $("#secondAnswer").html(questionBank[currentQuestion].answerB);
+      console.log(currentQuestion);
+      currentQuestion = currentQuestion + 1;
+    })
+  };
 
   function hideEverything() {
     $("#statusBar").hide();
     $("#askedQuestion").hide();
-    $("#photoSpot").hide();
     $(".answerBtn").hide();
-    $("#blurbBar").hide();
-  }
+    $("#additional-worker-btn").hide();
+    $("#new-answer-btn").hide();
+    $("#new-question-btn").hide();
+  };
 
-  function displayQuestion(foo) {
-    questTimer();
-    $("#photoSpot").hide();
-    $("#blurbBar").empty();
-    $("#askedQuestion").show();
-    $(".answerBtn").show();
-    $("#askedQuestion").html(foo.theQuestion);
-    $("#firstAnswer").html(foo.answerA);
-    $("#secondAnswer").html(foo.answerB);
-    $("#thirdAnswer").html(foo.answerC);
-    $("#fourthAnswer").html(foo.answerD);
-    rightAns = foo.rightAns;
-    currentQuestion++;
-  }
-
-  function countDown() {
-    if (count < 10) {
-      count = "0" + count;
-    }
-    $("#statusBar").text("00:" + count);
-    if (count == 0) {
-      clearInterval(intervalID);
-      $("#statusBar").text("");
-      missed = missed + 1;
-      timeUp();
-    }
-    count--;
-  }
-
-  function timeUp() {
-    $(".answerBtn").hide()
-    $("#statusBar").text("Time's up!");
-    $("#askedQuestion").html(questionBank[currentQuestion - 1].theBlurb);
-    $("#photoSpot").show();
-    $("#photoSpot").html("<img src=" + questionBank[currentQuestion - 1].image + " alt=" + questionBank[currentQuestion - 1].altText + " width='500px'>");
-    setTimeout(loadNewQuestion, 5000);
-  }
-
-  function playAgain() {
-    $("#new-game-btn").click(function () {
+  function checkAgain() {
+    $("#new-worker-btn").click(function () {
       $(".answerBtn").show()
-      right = 0;
-      wrong = 0;
-      missed = 0;
       currentQuestion = 0;
-      $("#new-game-btn").hide();
+      $("#new-worker-btn").hide();
       $("#statusBar").show();
       displayQuestion(questionBank[currentQuestion]);
     })
+  };
+
+  function displayQuestion() {
+    $("#askedQuestion").show();
+    $(".answerBtn").show();
+    $("#askedQuestion").html(questionBank[currentQuestion].theQuestion);
+    $("#firstAnswer").html(questionBank[currentQuestion].answerA);
+    $("#secondAnswer").html(questionBank[currentQuestion].answerB);
+    console.log(currentQuestion);
+    currentQuestion = currentQuestion + 1;
   }
+
+  // function countDown() {
+  //   if (count < 10) {
+  //     count = "0" + count;
+  //   }
+  //   $("#statusBar").text("00:" + count);
+  //   if (count == 0) {
+  //     clearInterval(intervalID);
+  //     $("#statusBar").text("");
+  //     missed = missed + 1;
+  //     timeUp();
+  //   }
+  //   count--;
+  // }
+
+  // function totalScore() {
+  //   $("#askedQuestion").show();
+  //   $(".answerBtn").hide()
+  //   $("#photoSpot").hide();
+  //   $("#statusBar").text("");
+  //   if (right > (wrong + missed)) {
+  //     $("#askedQuestion").text("Good job! Your final score: " + right + " right answers, " + wrong + " wrong answers, and " + missed + " unanswered questions.");
+  //   } else {
+  //     $("#askedQuestion").text("Guess you need to spend a little more time at the movies: you got " + wrong + " wrong, " + missed + " unanswered questions, and only " + right + " questions right.");
+  //   }
+  //   $("#new-worker-btn").text("Play Again")
+  //   $("#new-worker-btn").show();
+  // }
+
+  // function timeUp() {
+  //   $(".answerBtn").hide()
+  //   $("#statusBar").text("Time's up!");
+  //   $("#askedQuestion").html(questionBank[currentQuestion - 1].theBlurb);
+  //   $("#photoSpot").show();
+  //   $("#photoSpot").html("<img src=" + questionBank[currentQuestion - 1].image + " alt=" + questionBank[currentQuestion - 1].altText + " width='500px'>");
+  //   setTimeout(loadNewQuestion, 5000);
+  // }
+
+  // function questTimer() {
+  //   count = 30;
+  //   clearInterval(intervalID);
+  //   intervalID = setInterval(countDown, 1000);
+  //   countDown();
+  // }
+
+  // function loadNewQuestion() {
+  //   $("#statusBar").hide();
+  //   $("#new-answer-btn").hide();
+  //   $("#new-question-btn").hide();
+  //   displayQuestion(questionBank[currentQuestion]);
+  //   if (currentQuestion == 20) {
+  //   }
+  // }
+
 });
