@@ -35,9 +35,11 @@ $(document).ready(function () {
     recordAnswer(hrAnswer);
   });
 
-  // function to capture user click and return explanation
+  // function to capture user click and return explanation // eventually to include logic for writing results to object array
+  // need to account for changed answer tho - or perhaps we just write to array when answer clicked, writing over previous reponse is 
+  // answer is changed
   function recordAnswer(answer) {
-    $("#askedQuestion").html(questionBank[currentQuestion - 1].theBlurb);
+    $("#askedQuestion").html(questionBank[currentQuestion - 1].theQuestion + "<p><p>" + questionBank[currentQuestion - 1].theBlurb);
     $(".answerBtn").hide()
     $("#statusBar").show();
     $("#statusBar").text("");
@@ -50,6 +52,9 @@ $(document).ready(function () {
     }
   };
 
+  // need function changeAnswer(); go back to change answer without loading new question
+
+  // function to move on to next question.
   function nextQuestion() {
     $("#new-question-btn").click(function () {
       $("#statusBar").hide();
@@ -60,7 +65,6 @@ $(document).ready(function () {
       $("#askedQuestion").html(questionBank[currentQuestion].theQuestion);
       $("#firstAnswer").html(questionBank[currentQuestion].answerA);
       $("#secondAnswer").html(questionBank[currentQuestion].answerB);
-      console.log(currentQuestion);
       currentQuestion = currentQuestion + 1;
     })
   };
